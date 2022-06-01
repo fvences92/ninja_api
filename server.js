@@ -48,11 +48,15 @@ app.post('/turtles', (req, res) => {
     res.json(turtles);
 });
 
-app.put('turtles/:index', (req, res) => {
+app.put('/turtles/:index', (req, res) => {
     turtles[req.params.index] = req.body;
     res.json(turtles);
 });
 
+app.delete ('/turtles/:index', (req, res) => {
+    turtles.splice(req.params.index, 1);
+    res.json(turtles);
+});
 /////////////////////////
 // Listener
 /////////////////////////
