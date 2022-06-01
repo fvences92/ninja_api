@@ -7,6 +7,12 @@ const express = require("express");
 // The Application Object
 /////////////////////////
 const app = express();
+
+/////////////////////////
+// MIDDLEWARE
+/////////////////////////
+
+app.use(express.json());
 /////////////////////////
 // The Data
 /////////////////////////
@@ -35,6 +41,11 @@ app.get('/turtles', (req, res) => {
 
 app.get('/turtles/:index', (req, res) => {
     res.json(turtles[req.params.index]);
+});
+
+app.post('/turtles', (req, res) => {
+    turtles.push(req.body);
+    res.json(turtles);
 });
 
 /////////////////////////
